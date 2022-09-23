@@ -14,8 +14,13 @@ class IndexTest extends TestCase
      */
     public function test_Index()
     {
-        $response = $this->get('/');
-
+        $response = $this->get('mahasiswa');
+        $response->assertSeeText("Email");
+        $response->assertSeeText("Nim");
+        $response->assertSeeText("Input Mahasiswa");
+        $response->assertSeeText("Jurusan");
+        $response->assertSeeText("Tanggal Lahir");
+        $response->assertSeeText("Alamat");
         $response->assertStatus(200);
     }
 }
